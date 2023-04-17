@@ -11,6 +11,8 @@ pipeline {
     post {
         always {
             emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+            slackSend color: "good", message: "Message from Jenkins Pipeline"
         }
+
     }
 }
